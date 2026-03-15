@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "hackcraft",
+  "version": "${version}",
+  "name": "hackcraft",
+  "description": "My first Minecraft mod!",
+  "authors": [
+    "KavyanshKhaitan2"
+  ],
+  "contact": {
+    "homepage": "https://kavyansh.org"
+  },
+  "license": "MIT",
+  "icon": "assets/hackcraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.kavyansh.hackcraft1.hackcraft.Hackcraft.client.MainClient"
+    ],
+    "main": [
+      "org.kavyansh.hackcraft1.hackcraft.Hackcraft.Main"
+    ]
+  },
+  "mixins": [
+    "hackcraft.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
