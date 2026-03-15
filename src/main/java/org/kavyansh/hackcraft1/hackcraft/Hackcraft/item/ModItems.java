@@ -16,6 +16,11 @@ public class ModItems {
                     .translationKey("item."+Main.MOD_ID+".hackpad")
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Main.MOD_ID, "hackpad")))
     ));
+    public static final Item HACKPAD_MCU = registerItem("hackpad_mcu", new Item(
+            new Item.Settings()
+                    .translationKey("item."+Main.MOD_ID+".hackpad_mcu")
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Main.MOD_ID, "hackpad_mcu")))
+    ));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Main.MOD_ID, name), item);
     }
@@ -26,6 +31,7 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
            entries.add(HACKPAD);
+           entries.add(HACKPAD_MCU);
         });
     }
 }
