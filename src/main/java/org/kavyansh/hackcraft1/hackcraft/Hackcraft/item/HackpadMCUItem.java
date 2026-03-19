@@ -17,9 +17,10 @@ public class HackpadMCUItem extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
+        ItemStack stack = user.getStackInHand(hand);
         if (world.isClient()) {
             MinecraftClient.getInstance().setScreen(
-                new HackpadMCUGUI(Text.empty(), this)
+                new HackpadMCUGUI(Text.empty(), stack)
             );
             return ActionResult.SUCCESS;
         }

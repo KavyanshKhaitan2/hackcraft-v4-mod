@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HackpadMCUGUI extends Screen {
-    HackpadMCUItem item;
+    ItemStack stack;
 
-    public HackpadMCUGUI(Text title, HackpadMCUItem item) {
+    public HackpadMCUGUI(Text title, ItemStack stack) {
         super(title);
-        this.item = item;
+        this.stack = stack;
     }
     int grid_start_x;
     int grid_start_y;
@@ -42,15 +42,12 @@ public class HackpadMCUGUI extends Screen {
         }
 
         var saveButton = ButtonWidget.builder(Text.of("Write to flash"), (btn) -> {
-            this.close();
             assert this.client.player != null;
             ArrayList<String> fieldTexts = new ArrayList<String>();
             for (TextFieldWidget textField : textFields) {
                 String text = textField.getText();
                 fieldTexts.add(text);
             }
-            ItemStack stack = this.item.getDefaultStack();
-            this.client.player.networkHandler.sendChatMessage(fieldTexts.get(0));
             stack.set(ModComponents.HACKPAD_BUTTON_0, fieldTexts.get(0));
             stack.set(ModComponents.HACKPAD_BUTTON_1, fieldTexts.get(1));
             stack.set(ModComponents.HACKPAD_BUTTON_2, fieldTexts.get(2));
@@ -67,7 +64,7 @@ public class HackpadMCUGUI extends Screen {
             stack.set(ModComponents.HACKPAD_BUTTON_13, fieldTexts.get(13));
             stack.set(ModComponents.HACKPAD_BUTTON_14, fieldTexts.get(14));
             stack.set(ModComponents.HACKPAD_BUTTON_15, fieldTexts.get(15));
-
+            this.close();
             this.client.player.sendMessage(Text.of("Flashing complete!"), true);
         }).dimensions(grid_start_x + (input_width * 3), grid_start_y + (input_height * 4), input_width, input_height).build();
         this.addDrawableChild(saveButton);
