@@ -16,6 +16,9 @@ public class HackpadGUI extends Screen {
         super(title);
     }
 
+    int grid_start_x;
+    int grid_start_y;
+
     @Override
     protected void init() {
         List<ButtonWidget> buttons = new ArrayList<>();
@@ -23,8 +26,8 @@ public class HackpadGUI extends Screen {
         int button_width = 80;
         int button_height = 20;
 
-        int grid_start_x = (int)(this.width / 2) - (button_width * 4 / 2);
-        int grid_start_y = (int)(this.height / 2) - (button_height * 4 / 2);
+        grid_start_x = (int)(this.width / 2) - (button_width * 4 / 2);
+        grid_start_y = (int)(this.height / 2) - (button_height * 4 / 2);
 
         for (int i = 0; i < 16; i++) {
             var x = i % 4;
@@ -58,7 +61,7 @@ public class HackpadGUI extends Screen {
         // We'll subtract the font height from the Y position to make the text appear above the button.
         // Subtracting an extra 10 pixels will give the text some padding.
         // textRenderer, text, x, y, color, hasShadow
-        graphics.drawTextWithShadow(this.textRenderer, "Hackpad", 40, 40 - this.textRenderer.fontHeight - 10, 0xFFFFFFFF);
+        graphics.drawTextWithShadow(this.textRenderer, "Hackpad", grid_start_x , grid_start_y - this.textRenderer.fontHeight - 10, 0xFFFFFFFF);
     }
 
 }

@@ -21,7 +21,7 @@ public class ModItems {
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Main.MOD_ID, "hackpad")))
                     .maxCount(1)
     ));
-    public static final Item HACKPAD_MCU = registerItem("hackpad_mcu", new Item(
+    public static final Item HACKPAD_MCU = registerItem("hackpad_mcu", new HackpadMCUItem(
             new Item.Settings()
                     .translationKey("item."+Main.MOD_ID+".hackpad_mcu")
                     .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Main.MOD_ID, "hackpad_mcu")))
