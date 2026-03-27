@@ -7,6 +7,11 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import org.kavyansh.hackcraft1.hackcraft.Hackcraft.component.ModComponents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.Identifier;
+import io.netty.buffer.Unpooled;
+import org.kavyansh.hackcraft1.hackcraft.Hackcraft.Main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,29 +48,17 @@ public class HackpadMCUGUI extends Screen {
 
         var saveButton = ButtonWidget.builder(Text.of("Write to flash"), (btn) -> {
             assert this.client.player != null;
-            ArrayList<String> fieldTexts = new ArrayList<String>();
+            ArrayList<String> fieldTexts = new ArrayList<>();
             for (TextFieldWidget textField : textFields) {
                 String text = textField.getText();
                 fieldTexts.add(text);
             }
-            stack.set(ModComponents.HACKPAD_BUTTON_0, fieldTexts.get(0));
-            stack.set(ModComponents.HACKPAD_BUTTON_1, fieldTexts.get(1));
-            stack.set(ModComponents.HACKPAD_BUTTON_2, fieldTexts.get(2));
-            stack.set(ModComponents.HACKPAD_BUTTON_3, fieldTexts.get(3));
-            stack.set(ModComponents.HACKPAD_BUTTON_4, fieldTexts.get(4));
-            stack.set(ModComponents.HACKPAD_BUTTON_5, fieldTexts.get(5));
-            stack.set(ModComponents.HACKPAD_BUTTON_6, fieldTexts.get(6));
-            stack.set(ModComponents.HACKPAD_BUTTON_7, fieldTexts.get(7));
-            stack.set(ModComponents.HACKPAD_BUTTON_8, fieldTexts.get(8));
-            stack.set(ModComponents.HACKPAD_BUTTON_9, fieldTexts.get(9));
-            stack.set(ModComponents.HACKPAD_BUTTON_10, fieldTexts.get(10));
-            stack.set(ModComponents.HACKPAD_BUTTON_11, fieldTexts.get(11));
-            stack.set(ModComponents.HACKPAD_BUTTON_12, fieldTexts.get(12));
-            stack.set(ModComponents.HACKPAD_BUTTON_13, fieldTexts.get(13));
-            stack.set(ModComponents.HACKPAD_BUTTON_14, fieldTexts.get(14));
-            stack.set(ModComponents.HACKPAD_BUTTON_15, fieldTexts.get(15));
+
+            Main.HackpadMCUPayload payload = new Main.HackpadMCUPayload(String.join(",", fieldTexts));
+            ClientPlayNetworking.send(payload);
+
             this.close();
-            this.client.player.sendMessage(Text.of("Flashing complete!"), true);
+            this.client.player.sendMessage(Text.of("Flashing ROM..."), true);
         }).dimensions(grid_start_x + (input_width * 3), grid_start_y + (input_height * 4), input_width, input_height).build();
         this.addDrawableChild(saveButton);
 
