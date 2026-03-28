@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ccc",
+    "cxc",
+    "ccc"
+  ],
+  "key": {
+    "x": [
+      "minecraft:redstone"
+    ],
+    "c": [
+      "minecraft:cobblestone"
+    ]
+  },
+  "result": {
+    "id": "hackcraft:hackpad_mcu",
+    "count": 2
+  }
+}

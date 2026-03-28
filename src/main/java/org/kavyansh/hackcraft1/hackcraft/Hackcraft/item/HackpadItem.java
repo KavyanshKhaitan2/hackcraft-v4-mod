@@ -3,6 +3,7 @@ package org.kavyansh.hackcraft1.hackcraft.Hackcraft.item;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -18,9 +19,10 @@ public class HackpadItem extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
+        ItemStack stack = user.getStackInHand(hand);
         if (world.isClient()) {
             MinecraftClient.getInstance().setScreen(
-                new HackpadGUI(Text.empty())
+                new HackpadGUI(Text.empty(), stack)
             );
             return ActionResult.SUCCESS;
         }

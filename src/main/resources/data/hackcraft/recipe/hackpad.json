@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ioi",
+    "xxx",
+    "ccc"
+  ],
+  "key": {
+    "i": [
+      "minecraft:redstone_torch"
+    ],
+    "o": [
+      "minecraft:iron_ingot"
+    ],
+    "x": [
+      "minecraft:redstone"
+    ],
+    "c": [
+      "minecraft:cobblestone"
+    ]
+  },
+  "result": {
+    "id": "hackcraft:hackpad",
+    "count": 1
+  }
+}

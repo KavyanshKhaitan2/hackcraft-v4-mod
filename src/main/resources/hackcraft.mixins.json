@@ -4,6 +4,8 @@
   "package": "org.kavyansh.hackcraft1.hackcraft.Hackcraft.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AnvilScreenHandlerMixin",
+    "ForgingScreenHandlerAccessor"
   ],
   "client": [
   ],

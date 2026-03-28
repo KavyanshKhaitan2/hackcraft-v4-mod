@@ -46,6 +46,24 @@ public class HackpadMCUGUI extends Screen {
             textFields.add(textField);
         }
 
+        textFields.get(0).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_0, ""));
+        textFields.get(1).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_1, ""));
+        textFields.get(2).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_2, ""));
+        textFields.get(3).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_3, ""));
+        textFields.get(4).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_4, ""));
+        textFields.get(5).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_5, ""));
+        textFields.get(6).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_6, ""));
+        textFields.get(7).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_7, ""));
+        textFields.get(8).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_8, ""));
+        textFields.get(9).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_9, ""));
+        textFields.get(10).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_10, ""));
+        textFields.get(11).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_11, ""));
+        textFields.get(12).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_12, ""));
+        textFields.get(13).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_13, ""));
+        textFields.get(14).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_14, ""));
+        textFields.get(15).setText(stack.getOrDefault(ModComponents.HACKPAD_BUTTON_15, ""));
+
+
         var saveButton = ButtonWidget.builder(Text.of("Write to flash"), (btn) -> {
             assert this.client.player != null;
             ArrayList<String> fieldTexts = new ArrayList<>();
