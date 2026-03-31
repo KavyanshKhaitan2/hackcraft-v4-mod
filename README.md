@@ -1,7 +1,13 @@
 # HackCraft: Hackpad Edition
+<div align="center">
+  <h2>
+    Download at <a href="https://modrinth.com/project/hackcrafts-hackpad">Modrinth</a> |
+    Watch the demo at <a href="https://www.youtube.com/watch?v=qdPrmCf7WGQ">YouTube</a>
+  </h2>
+</div>
+
 This mod adds
 two items. A hackpad and a hackpad MCU.
-
 ## Crafting Recipes
 ### Hackpad
 ![Hackpad Recipe](images/hackpad_recipe.png)
